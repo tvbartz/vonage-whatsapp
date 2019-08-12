@@ -1,0 +1,33 @@
+{
+    "name": "nexmo-sms-teneo",
+    "description": "A Teneo bot connector for Nexmo SMS.",
+    "keywords": [
+        "bot",
+        "Nexmo",
+        "Teneo",
+        "SMS"
+    ],
+    "repository": "https://github.com/pomegran/nexmo-sms-teneo",
+    "env": {    
+        "TENEO_ENGINE_URL": {
+            "description": "Please input your Teneo Engine URL. https://some.engine/instance/",
+            "required":true
+        },
+        "PORT": {
+            "description": "Port for the app to listen on, defaults to 1337 if not specified",
+            "required":false
+        },        
+        "NEXMO_NUMBER": {
+            "description": "Number to send the SMS from in E.164 format",
+            "required":true
+        },
+        "NEXMO_API_KEY": {
+            "description": "The Nexmo API key",
+            "required":true
+        },        
+        "NEXMO_API_SECRET": {
+            "description": "The Nexmo API secret",
+            "required":true
+        }
+    }
+}
