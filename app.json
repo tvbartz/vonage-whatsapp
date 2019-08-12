@@ -1,13 +1,13 @@
 {
-    "name": "nexmo-sms-teneo",
-    "description": "A Teneo bot connector for Nexmo SMS.",
+    "name": "nexmo-whatsapp-teneo",
+    "description": "A Teneo bot connector for Nexmo WhatsApp Sandox.",
     "keywords": [
         "bot",
         "Nexmo",
         "Teneo",
-        "SMS"
+        "WhatsApp"
     ],
-    "repository": "https://github.com/pomegran/nexmo-sms-teneo",
+    "repository": "https://github.com/pomegran/nexmo-whatsapp-teneo",
     "env": {    
         "TENEO_ENGINE_URL": {
             "description": "Please input your Teneo Engine URL. https://some.engine/instance/",
@@ -17,16 +17,12 @@
             "description": "Port for the app to listen on, defaults to 1337 if not specified",
             "required":false
         },        
-        "NEXMO_NUMBER": {
-            "description": "Number to send the SMS from in E.164 format",
+        "NEXMO_MESSAGE_URL": {
+            "description": "Endpoint for sending messages",
             "required":true
         },
-        "NEXMO_API_KEY": {
-            "description": "The Nexmo API key",
-            "required":true
-        },        
-        "NEXMO_API_SECRET": {
-            "description": "The Nexmo API secret",
+        "NEXMO_JWT": {
+            "description": "Your JSON Web Token",
             "required":true
         }
     }
