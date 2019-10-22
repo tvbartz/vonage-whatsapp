@@ -124,12 +124,12 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 
 			// Attach a file (only adds 1 file in this demo
 			if (teneoResponse.output.parameters.file) {
-				const file = {
+				const filename = {
 					url:teneoResponse.output.parameters.file
 				};
 				contentBody = {
 					type:"file",
-					file:file
+					file:filename
 				};
 				content = {};
 				content['content'] = contentBody;
