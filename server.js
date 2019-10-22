@@ -121,6 +121,41 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 					console.log(`Status code from Nexmo WhatsApp Send: ${response.statusCode}`)
 				}
 			)
+
+			// Attach a file (only adds 1 file in this demo
+			if (teneoResponse.output.parameters.file) {
+				const file = {};
+				file['url'] = teneoResponse.output.parameters.file;
+				const contentBody = {
+					type:"file",
+					file:file
+				};
+				content = {};
+				content['content'] = contentBody;
+				whatsAppMessage['message'] = content;
+				nexmoWhatsAppRequest.post(
+					{
+						url:NEXMO_MESSAGE_URL,
+						headers:
+						{
+							'Authorization':'Bearer ' + NEXMO_JWT,
+							'Content-Type':'application/json',
+							'Accept':'application/json'
+						},
+						method:'POST',
+						json: true,
+						body: whatsAppMessage
+					}, (error, response, body) => {
+						if (error) {
+							console.error(error)
+							return
+						}
+						console.log(`Status code from Nexmo WhatsApp Send: ${response.statusCode}`)
+					}
+				)
+
+			}
+
 		}
 
 		res.writeHead(200, { 'Content-Type': 'application/json' });
