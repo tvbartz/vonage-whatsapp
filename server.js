@@ -128,7 +128,7 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 				filename['url'] = teneoResponse.output.parameters.file
 				contentBody = {
 					type:"file",
-					file:filename
+					file:JSON.stringify(filename)
 				};
 				content = {};
 				content['content'] = contentBody;
