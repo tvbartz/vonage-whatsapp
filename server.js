@@ -112,7 +112,7 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 					},
 					method:'POST',
 					json: true,
-					body: JSON.stringify(whatsAppMessage)
+					body: whatsAppMessage
 				}, (error, response, body) => {
 					if (error) {
 						console.error(error)
@@ -147,7 +147,7 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 						},
 						method:'POST',
 						json: true,
-						body: JSON.stringify(whatsAppMessage)
+						body: whatsAppMessage
 					}, (error, response, body) => {
 						if (error) {
 							console.error(error)
