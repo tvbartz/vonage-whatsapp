@@ -89,14 +89,14 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 				type:"whatsapp",
 				number: callingPhoneNumber
 			};
-			const contentBody = {
+			var contentBody = {
 				type:"text",
 				text:teneoResponse.output.text
 			};
 
 			whatsAppMessage['from'] = from;
 			whatsAppMessage['to'] = to;
-			const content = {};
+			var content = {};
 			content['content'] = contentBody;
 			whatsAppMessage['message'] = content;
 
@@ -126,7 +126,7 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 			if (teneoResponse.output.parameters.file) {
 				const file = {};
 				file['url'] = teneoResponse.output.parameters.file;
-				const contentBody = {
+				contentBody = {
 					type:"file",
 					file:file
 				};
