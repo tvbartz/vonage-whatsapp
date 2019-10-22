@@ -133,6 +133,9 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 				content = {};
 				content['content'] = contentBody;
 				whatsAppMessage['message'] = content;
+
+				console.log(whatsAppMessage);
+
 				nexmoWhatsAppRequest.post(
 					{
 						url:NEXMO_MESSAGE_URL,
