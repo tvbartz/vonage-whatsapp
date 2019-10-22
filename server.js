@@ -122,18 +122,18 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 				}
 			)
 
-			// Attach a file (only adds 1 file in this demo
+			// Attach a file (only adds 1 file in this demo)
 			if (teneoResponse.output.parameters.file) {
 				var filename = {};
-				filename = teneoResponse.output.parameters.file
+				filename['url'] = teneoResponse.output.parameters.file
 				content = {};
 				contentBody = {};
 				contentBody['type'] = "file";
-				contentBody['url'] = filename;
+				contentBody['file'] = filename;
 				content['content'] = contentBody;
 				whatsAppMessage['message'] = content;
 
-				console.log(whatsAppMessage);
+				console.log(JSON.stringify(whatsAppMessage));
 
 				nexmoWhatsAppRequest.post(
 					{
@@ -146,7 +146,7 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 						},
 						method:'POST',
 						json: true,
-						body: whatsAppMessage
+						body: JSON.stringify(whatsAppMessage)
 					}, (error, response, body) => {
 						if (error) {
 							console.error(error)
