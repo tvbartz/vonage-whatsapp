@@ -145,8 +145,7 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 							'Accept':'application/json'
 						},
 						method:'POST',
-						json: true,
-						body: whatsAppMessage
+						body: JSON.stringify(whatsAppMessage)
 					}, (error, response, body) => {
 						if (error) {
 							console.error(error)
