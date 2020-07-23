@@ -1,13 +1,14 @@
 {
-    "name": "nexmo-whatsapp-teneo",
-    "description": "A Teneo bot connector for Nexmo WhatsApp Sandox.",
+    "name": "vonage-whatsapp-teneo",
+    "description": "A Teneo bot connector for WhatsApp Business over Vonage.",
     "keywords": [
         "bot",
         "Nexmo",
+        "Vonage",
         "Teneo",
         "WhatsApp"
     ],
-    "repository": "https://github.com/pomegran/nexmo-whatsapp-teneo",
+    "repository": "https://github.com/tvbartz/vonage-whatsapp",
     "env": {    
         "TENEO_ENGINE_URL": {
             "description": "Please input your Teneo Engine URL. https://some.engine/instance/",
