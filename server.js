@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Artificial Solutions. All Rights Reserved.
+ * Copyright 2020 Artificial Solutions. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -121,11 +121,61 @@ function handleNexmoWhatsAppMessage(sessionHandler) {
 				}
 			)
 
+			// Use buttons
+			if (teneoResponse.output.parameters.buttons) {
+				content = {};
+				contentBody = {};
+				contentBody['type'] = "button";
+				contentBody['parameters'] = [
+				    {
+                        "type": "text",
+                        "text": "Anand"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Quest"
+                    },
+                    {
+                        "type": "text",
+                        "text": "113-0921387"
+                    },
+                    {
+                        "type": "text",
+                        "text": "23rd Nov 2019"
+                    }
+				]
+				content['content'] = contentBody;
+				whatsAppMessage['message'] = content;
+
+				console.log(JSON.stringify(whatsAppMessage));
+
+				nexmoWhatsAppRequest.post(
+					{
+						url:NEXMO_MESSAGE_URL,
+						headers:
+						{
+							'Authorization':'Bearer ' + NEXMO_JWT,
+							'Content-Type':'application/json',
+							'Accept':'application/json'
+						},
+						method:'POST',
+						body: JSON.stringify(whatsAppMessage)
+					}, (error, response, body) => {
+						if (error) {
+							console.error(error)
+							return
+						}
+						console.log(`Status code from Nexmo WhatsApp Send: ${response.statusCode}`)
+					}
+				)
+
+			}
+			
 			// Attach a file (only adds 1 file in this demo)
 			if (teneoResponse.output.parameters.file) {
 				var filename = {};
-				filename['url'] = teneoResponse.output.parameters.file;
-				filename['caption'] = "Here is your datasheet";
+				filename['url'] = teneoResponse.output.parameters.file.url;
+				filename['caption'] = teneoResponse.output.parameters.file.caption;
 				content = {};
 				contentBody = {};
 				contentBody['type'] = "file";
